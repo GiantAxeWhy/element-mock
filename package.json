@@ -1,0 +1,49 @@
+{
+  "name": "element-mock",
+  "displayName": "element-mock",
+  "description": "A Visual Studio Code extension to generate table data from <el-table-column> code blocks.",
+  "version": "1.0.1",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "publisher": "a0b961b2-a5d8-6fe9-86b6-9fbe3d0bb072",
+  "activationEvents": [
+    "onCommand:extension.generateTableData"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.generateTableData",
+        "title": "Generate Table Data"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.generateTableData",
+          "group": "1_modification",
+          "when": "editorHasSelection && editorLangId == 'vue'"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.81.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6",
+    "@vscode/test-electron": "^2.3.4"
+  }
+}
